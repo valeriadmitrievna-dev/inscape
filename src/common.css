@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css?family=Audiowide&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat" !important;
+  font-weight: 200;
+}
+
+*::selection {
+  background-color: rgba(255, 255, 255, 0.445);
+  color: #000;
+}
+
+body,
+#root {
+  height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  overflow: hidden;
+  font-family: "Lato" !important;
+  background-color: #373e57;
+  color: #ccc8db;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #c3c5d5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #1b2735 inset !important;
+  box-shadow: 0 0 0 30px #1b2735 inset !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+a.city {
+  padding: 3px 5px;
+  line-height: 1;
+  font-size: 14px;
+  background-color: #d63333b4;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none !important;
+}
+
+.dropzone {
+  width: 100%;
+}
+
+p {
+  font-size: 16px;
+  color: #9c9cab;
+  line-height: 20px;
+}
+
+.invalid-input-with-border,
+.invalid-input-with-border ~ svg path {
+  border-color: #f00 !important;
+  fill: #f00 !important;
+  z-index: 5;
+}
+
+.dark-select-option.ant-select-item-option-selected,
+.dark-select-option.ant-select-item-option-active {
+  background-color: #17222e !important;
+}
+.ant-select-selector {
+  height: auto !important;
+}
+.ant-select-dropdown *,
+.ant-select * {
+  color: #fff;
+}
+
+.custom-message .ant-message-notice-content {
+  background-color: #0e141b;
+}
+
+.custom-message * {
+  color: #fff;
+}
+
+.custom-message .ant-message-notice-content svg path {
+  fill: rgb(150, 0, 0);
+}
+
+.custom-dropdown {
+  margin-top: 10px !important;
+}
+.custom-dropdown ul {
+  background-color: #343f4c;
+}
+.ant-dropdown-menu-title-content {
+  color: #fff;
+}
+.custom-dropdown .ant-dropdown-menu-item:hover,
+.ant-dropdown-menu-item:hover {
+  background-color: #111922;
+}
+.ant-modal .ant-modal-content,
+.ant-modal .ant-modal-content > div {
+  background: #111922;
+  color: #fff;
+  border: none;
+}
+.ant-modal-title,
+.ant-modal-close,
+.ant-modal-close:hover {
+  color: #fff !important;
+}
+.ant-modal-footer span {
+  font-weight: 500;
+}
+.ant-modal-footer button:first-of-type {
+  background: rgba(165, 42, 42, 0.411);
+  border-color: brown;
+  color: brown;
+}
+.ant-modal-footer button:first-of-type:hover {
+  background: rgba(165, 42, 42, 1);
+  color: #fff;
+}
+.ant-modal-footer button:last-of-type {
+  background: #00b0b665;
+  border-color: #00afb6;
+  color: #00afb6;
+}
+.ant-modal-footer button:last-of-type:hover {
+  background: #00afb6;
+  color: #fff;
+}
+
+.ant-upload.ant-upload-select-picture-card {
+  background-color: transparent !important;
+}
+.ant-upload.ant-upload-select-picture-card:hover {
+  border-color: #00afb6 !important;
+}
+.ant-upload.ant-upload-select-picture-card span {
+  color: #fff;
+}
+.ant-upload-picture-card-wrapper * {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+.ant-upload-list-picture .ant-upload-list-item,
+.ant-upload-list-picture-card .ant-upload-list-item {
+  padding: 0 !important;
+}
+
+.upload-icon {
+  width: 48px;
+  height: 48px;
+}
+.upload-icon path {
+  transition: 0.3s;
+}
+.ant-upload.ant-upload-select-picture-card:hover .upload-icon path {
+  fill: #00afb6;
+}
+.ant-dropdown-menu-item span {
+  display: block;
+}
+.ant-dropdown-menu-item span::first-letter {
+  text-transform: uppercase;
+}
+
+.ant-collapse.ant-collapse-icon-position-left {
+  color: #fff;
+  font-size: 16px;
+  background-color: transparent;
+  border: 1px solid #5c5e6e;
+}
+.ant-collapse > .ant-collapse-item {
+  border-color: #5c5e6e;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  padding: 12px 14px;
+  color: #fff;
+  line-height: 1.5715;
+}
+.ant-collapse-content {
+  color: #fff;
+  background-color: #1b2735;
+  border: none;
+}
+
+@media (max-width: 640px) {
+  .ant-collapse.ant-collapse-icon-position-left {
+    font-size: 4.2vw;
+  }
+  .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+    padding: 3vw 4vw;
+  }
+}
+
+

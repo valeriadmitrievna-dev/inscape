@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ebf95ed3.chunk.css",
+    "main.js": "/static/js/main.56d57dc9.chunk.js",
+    "main.js.map": "/static/js/main.56d57dc9.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.18f1023c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.18f1023c.js.map",
+    "static/css/2.81b0985c.chunk.css": "/static/css/2.81b0985c.chunk.css",
+    "static/js/2.51e6a674.chunk.js": "/static/js/2.51e6a674.chunk.js",
+    "static/js/2.51e6a674.chunk.js.map": "/static/js/2.51e6a674.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.81b0985c.chunk.css.map": "/static/css/2.81b0985c.chunk.css.map",
+    "static/css/main.ebf95ed3.chunk.css.map": "/static/css/main.ebf95ed3.chunk.css.map",
+    "static/js/2.51e6a674.chunk.js.LICENSE.txt": "/static/js/2.51e6a674.chunk.js.LICENSE.txt",
+    "static/media/apartment-icon.c02ecec2.svg": "/static/media/apartment-icon.c02ecec2.svg",
+    "static/media/cloud-computing.320ff014.svg": "/static/media/cloud-computing.320ff014.svg",
+    "static/media/education-icon.f22107c9.svg": "/static/media/education-icon.f22107c9.svg",
+    "static/media/events-icon.b2d20ae8.svg": "/static/media/events-icon.b2d20ae8.svg",
+    "static/media/files-icon.9b76b615.svg": "/static/media/files-icon.9b76b615.svg",
+    "static/media/home-icon.9d3c0e33.svg": "/static/media/home-icon.9d3c0e33.svg",
+    "static/media/logo_text.9e5a3485.svg": "/static/media/logo_text.9e5a3485.svg",
+    "static/media/logo_transparent_whited.639ffa08.svg": "/static/media/logo_transparent_whited.639ffa08.svg",
+    "static/media/logout.12a32796.svg": "/static/media/logout.12a32796.svg",
+    "static/media/message-icon.302fa589.svg": "/static/media/message-icon.302fa589.svg",
+    "static/media/mobile-menu-close.8efd7973.svg": "/static/media/mobile-menu-close.8efd7973.svg",
+    "static/media/mobile-menu-lines.087cfa9b.svg": "/static/media/mobile-menu-lines.087cfa9b.svg",
+    "static/media/people.5d0a9f67.svg": "/static/media/people.5d0a9f67.svg",
+    "static/media/room-icon.a92813fd.svg": "/static/media/room-icon.a92813fd.svg",
+    "static/media/settings.5f514ebd.svg": "/static/media/settings.5f514ebd.svg",
+    "static/media/share.cfbc72f2.svg": "/static/media/share.cfbc72f2.svg",
+    "static/media/upload.92ec8433.svg": "/static/media/upload.92ec8433.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.18f1023c.js",
+    "static/css/2.81b0985c.chunk.css",
+    "static/js/2.51e6a674.chunk.js",
+    "static/css/main.ebf95ed3.chunk.css",
+    "static/js/main.56d57dc9.chunk.js"
+  ]
+}
