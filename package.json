@@ -42,12 +42,12 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "nodemon app.js",
-    "server": "node app.js",
+    "client": "react-scripts start",
     "start:dev": "concurrently \"npm run dev\" \"npm run start\""
   },
   "eslintConfig": {
