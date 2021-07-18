@@ -34,4 +34,10 @@ async function start() {
   }
 }
 
+console.log(
+  process.env.REACT_APP_API_PIPELINE === "production"
+    ? process.env.REACT_APP_API_URL_ORIGIN
+    : process.env.REACT_APP_API_URL_DEV
+);
+
 start();
