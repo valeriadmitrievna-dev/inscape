@@ -27,7 +27,7 @@ export default function SignInLayout({ t, handleChange, handleSignIn }) {
               <input type="password" id="password" onChange={handleChange} />
             </AuthInput>
           </AuthInputs>
-          <AuthRow>
+          <AuthRow row>
             <AuthButton onClick={handleSignIn}>{t("sign in")}</AuthButton>
             <AuthSwitch>
               <Link to="/signup">{t("sign up")}</Link>

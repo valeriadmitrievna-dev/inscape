@@ -17,3 +17,12 @@ export const SignUpService = async (body) => {
     return error.response;
   }
 };
+
+export const SignUpGetRoommatesService = async (body) => {
+  try {
+    const response = await API.post("/user/signup/get_roommates", body);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};

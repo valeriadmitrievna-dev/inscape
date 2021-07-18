@@ -29,12 +29,27 @@ router.post(
         });
       }
 
-      const { username, full_name, password, email, dormitory, room } =
-        req.body;
+      const {
+        username,
+        first_name,
+        last_name,
+        password,
+        email,
+        dormitory,
+        room,
+        add_roommates,
+        role,
+        roommates,
+      } = req.body;
 
-      if (!full_name) {
+      if (!first_name) {
         return res.status(400).json({
-          message: "Full name required 'string', but got 'undefined'",
+          message: "First name required 'string', but got 'undefined'",
+        });
+      }
+      if (!last_name) {
+        return res.status(400).json({
+          message: "Last name required 'string', but got 'undefined'",
         });
       }
 
@@ -56,26 +71,31 @@ router.post(
           .json({ error: "User with this username already exists" });
       }
 
-      const roommates = [
-        ...(await User.find({
-          room,
-          dormitory,
-        }).populate("roommates")),
-      ];
+      const candidateRoommates = add_roommates
+        ? [
+            ...(await User.find({
+              room,
+              dormitory,
+            }).populate("roommates")),
+          ]
+        : [...roommates];
 
       // create user
       const newUser = new User({
         username,
-        full_name: full_name.replace(/[' ']+/g, " ").trim(),
+        full_name: (first_name.trim() + " " + last_name.trim())
+          .replace(/[' ']+/g, " ")
+          .trim(),
         password,
         email,
         dormitory,
         room,
-        roommates: roommates.map((user) => user._id),
+        role,
+        roommates: candidateRoommates.map((user) => user._id),
       });
 
       // add new user to roommates of other users of that room
-      roommates.forEach(async (user) => {
+      candidateRoommates.forEach(async (user) => {
         user.roommates.push(newUser);
         user.save(async (err) => {
           if (err) {
@@ -84,22 +104,22 @@ router.post(
               error: "Error on updating other users",
             });
           }
-          await newUser.save(function (err, user) {
-            if (err) {
-              console.log(err);
-              return res.status(500).json({
-                error:
-                  "500: Error registering new user please try again later.",
-              });
-            } else {
-              const payload = { username: user.username };
-              const token = jwt.sign(payload, process.env.SECRET, {
-                expiresIn: "24h",
-              });
-              return res.status(200).json({ token });
-            }
-          });
         });
+      });
+      // create new user
+      await newUser.save(function (err, user) {
+        if (err) {
+          console.log(err);
+          return res.status(500).json({
+            error: "500: Error registering new user please try again later.",
+          });
+        } else {
+          const payload = { username: user.username };
+          const token = jwt.sign(payload, process.env.SECRET, {
+            expiresIn: "24h",
+          });
+          return res.status(200).json({ token });
+        }
       });
     } catch (e) {
       console.log(e.message);
@@ -310,7 +330,7 @@ router.put("/update/info", withAuth, async (req, res) => {
 });
 
 // Get all users short info
-router.get("/all", withAuth, async (req, res) => {
+router.get("/all", async (req, res) => {
   await User.find({}).then(function (users) {
     res.status(200).json(
       users.map((user) => {
@@ -321,6 +341,20 @@ router.get("/all", withAuth, async (req, res) => {
         };
       })
     );
+  });
+});
+
+router.post("/signup/get_roommates", async (req, res) => {
+  const { dormitory, room } = req.body;
+  await User.find({ dormitory, room }).exec((err, users) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({
+        error: "Internal error please try again",
+      });
+    } else {
+      return res.status(200).json([...users]);
+    }
   });
 });
 

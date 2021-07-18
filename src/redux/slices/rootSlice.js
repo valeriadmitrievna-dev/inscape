@@ -23,6 +23,7 @@ const rootSlice = createSlice({
     logout(state) {
       state.isAuth = false;
       state.user = null;
+      state.checking_user = null;
     },
     setLoading(state, { payload }) {
       state.loading = payload;
@@ -68,12 +69,14 @@ const rootSlice = createSlice({
     [GetUserThunk.rejected]: (state, { error }) => {
       state.error = error.message;
       state.loading = false;
+      console.log(error);
     },
     [GetAllUsersInfoThunk.pending]: (state) => {
       state.loading = true;
     },
     [GetAllUsersInfoThunk.fulfilled]: (state, { payload }) => {
       state.all_users = payload;
+      state.loading = false;
     },
     [GetAllUsersInfoThunk.rejected]: (state, { error }) => {
       state.error = error.message;

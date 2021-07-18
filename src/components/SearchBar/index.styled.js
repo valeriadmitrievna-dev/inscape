@@ -44,7 +44,6 @@ export const RightSideButton = styled.button`
   background-color: #00000012;
   border-left: 1px solid $border-color;
   color: #fff;
-  display: none;
   cursor: pointer;
   > * {
     line-height: 1;

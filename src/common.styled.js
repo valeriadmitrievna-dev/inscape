@@ -73,9 +73,12 @@ export const Box = styled.div`
   background-color: #1b2735;
   border-radius: 4px;
   padding: 20px;
-  ${({fullwidth}) => fullwidth && `
+  ${({ fullwidth }) =>
+    fullwidth &&
+    `
     width: 100% !important;
   `}
+
   p {
     &::first-letter {
       text-transform: uppercase;
@@ -235,5 +238,23 @@ export const LinkUp = styled.div`
   }
   &:hover::before {
     height: 100%;
+  }
+`;
+
+export const NeutralButton = styled.button`
+  padding: 8px 16px;
+  background-color: #00afb636;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  ${({ margin }) => margin && `margin: ${margin};`}
+  cursor: pointer;
+  min-width: 150px;
+  display: block;
+  &::first-letter {
+    text-transform: uppercase;
+  }
+  &:disabled {
+    opacity: 0.3;
   }
 `;

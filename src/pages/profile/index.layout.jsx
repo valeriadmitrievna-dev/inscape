@@ -124,11 +124,7 @@ export default function ProfileLayout({
             <ProfileName>
               {checking_user?.full_name}
               <ProfileRole>
-                {!checking_user?.role
-                  ? ""
-                  : checking_user?.role === "user"
-                  ? t("resident")
-                  : t(checking_user?.role)}
+                {!checking_user?.role ? "" : t(checking_user?.role)}
               </ProfileRole>
             </ProfileName>
           </ProfileAvatar>

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setError } from "./redux/slices/rootSlice";
 import { message } from "antd";
 import jwt_decode from "jwt-decode";
-import { GetAllUsersInfoThunk, GetUserThunk } from './redux/thunks/user';
+import { GetAllUsersInfoThunk, GetUserThunk } from "./redux/thunks/user";
 
 function App() {
   const { loading, error, isAuth } = useSelector((state) => state.root);
@@ -27,15 +27,15 @@ function App() {
       content: text,
       className: "custom-message",
       onClose: () => dispatch(setError(null)),
-      duration: 5
+      duration: 5,
     });
   };
 
   useEffect(() => {
     if (isAuth) {
       dispatch(GetUserThunk());
-      dispatch(GetAllUsersInfoThunk())
     }
+    dispatch(GetAllUsersInfoThunk());
   }, [isAuth]);
 
   useEffect(() => {

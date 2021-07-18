@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Select } from "antd";
+import { message, Select, Steps } from "antd";
 import {
   AuthButton,
   AuthContent,
@@ -12,83 +12,48 @@ import {
   AuthInputs,
 } from "../../auth.styled";
 import LanguageFooter from "../../components/LanguageFooter";
+import BlueButton from "./../../components/BlueButton/index";
+import useWindowSize from "./../../utils/hooks/use-window-size";
 
 export default function SignUpLayout({
   t,
+  steps,
+  current,
+  next,
+  prev,
   dormitories,
   handleChange,
   handleSignUp,
 }) {
   const { Option } = Select;
+  const { width } = useWindowSize();
   return (
     <AuthPage>
-      <AuthContent loading={`${false}`}>
+      <AuthContent wide>
         <AuthTitle>{t("sign up")}</AuthTitle>
-        <AuthInputs id="sign-up-inputs">
-          <AuthInput>
-            <label htmlFor="username">{t("username")}</label>
-            <input onChange={handleChange} type="text" id="username" />
-          </AuthInput>
-          <AuthInput>
-            <label htmlFor="email">{t("email")}</label>
-            <input onChange={handleChange} type="text" id="email" />
-          </AuthInput>
-          <AuthInput>
-            <label htmlFor="full_name">{t("full name")}</label>
-            <input onChange={handleChange} type="text" id="full_name" />
-          </AuthInput>
-          <AuthRow>
-            <AuthInput>
-              <label htmlFor="dormitory">{t("dormitory")}</label>
-              <Select
-                style={{
-                  width: "100%",
-                  background: "#1b2735",
-                  borderBottom: "1px solid #fff",
-                  color: "#fff",
-                }}
-                bordered={false}
-                dropdownStyle={{
-                  background: "#1b2735",
-                }}
-                id="dormitory"
-                onChange={handleChange}
-              >
-                {dormitories.map((number, id) => (
-                  <Option
-                    key={id}
-                    value={number}
-                    className="dark-select-option"
-                  >
-                    {number}
-                  </Option>
-                ))}
-              </Select>
-            </AuthInput>
-            <AuthInput>
-              <label htmlFor="room">{t("room")}</label>
-              <input onChange={handleChange} type="text" id="room" />
-            </AuthInput>
-          </AuthRow>
-          <AuthInput>
-            <label htmlFor="password">{t("password")}</label>
-            <input onChange={handleChange} type="password" id="password" />
-          </AuthInput>
-          <AuthInput>
-            <label htmlFor="repeat_password">{t("repeat password")}</label>
-            <input
-              onChange={handleChange}
-              type="password"
-              id="repeat_password"
-            />
-          </AuthInput>
-        </AuthInputs>
-        <AuthRow>
-          <AuthButton onClick={handleSignUp}>{t("sign up")}</AuthButton>
-          <AuthSwitch>
-            <Link to="/signin">{t("sign in")}</Link>
-          </AuthSwitch>
-        </AuthRow>
+        <Steps
+          current={current}
+          size={width <= 640 && "small"}
+          direction={width <= 640 ? "vertical" : "horizontal"}
+        >
+          {steps.map((item) => (
+            <Steps.Step key={item.title} title={item.title} />
+          ))}
+        </Steps>
+        <div className="steps-content">{steps[current].content}</div>
+        <div className="steps-action">
+          <BlueButton disabled={current === 0} onClick={() => prev()}>
+            {t("previous")}
+          </BlueButton>
+          {current < steps.length - 1 && (
+            <BlueButton onClick={() => next()}>{t("next")}</BlueButton>
+          )}
+          {current === steps.length - 1 && (
+            <BlueButton onClick={handleSignUp}>
+              {t("sign up")}
+            </BlueButton>
+          )}
+        </div>
       </AuthContent>
       <LanguageFooter />
     </AuthPage>

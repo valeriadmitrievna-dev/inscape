@@ -4,12 +4,12 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 const schema = new Schema({
-  role: { type: String, default: "user" },
+  role: { type: String, default: "resident" },
   email: { type: String, required: true, unic: true, trim: true },
   password: { type: String, required: true, trim: true },
   username: { type: String, required: true, unic: true, trim: true },
   full_name: { type: String, required: true, unic: false, trim: true },
-  room: { type: Number, required: true, unic: false },
+  room: { type: Number, unic: false },
   dormitory: { type: String, required: true, unic: false },
   profile_photo: { type: String },
   banner_photo: { type: String },
