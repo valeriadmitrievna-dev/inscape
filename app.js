@@ -7,7 +7,7 @@ const path = require("path");
 const fileupload = require("express-fileupload");
 
 const app = express();
-const port = process.env.SERVER_PORT || 8000;
+const port = process.env.PORT || 8000;
 app.use(express.static("build"));
 
 app.use(cors());
@@ -33,11 +33,5 @@ async function start() {
     console.log("Server error:", e.message);
   }
 }
-
-console.log(
-  process.env.REACT_APP_API_PIPELINE === "production"
-    ? process.env.REACT_APP_API_URL_ORIGIN
-    : process.env.REACT_APP_API_URL_DEV
-);
 
 start();
