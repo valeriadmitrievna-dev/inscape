@@ -26,13 +26,13 @@ To run app on localhost clone repository and follow this commands:
  - [ /signup ] **Sign Up page**
  - [ /profile/*username* ] **User profile page** - info about one user
  > if you try to go to a page of a non-existent user, you will see a nice 404 page :)
+ - [ /chat ] **Chat page** - work in development, but you already can see working chat (with some little bugs, but it work)
  - [ /settings ] **Settings page** - user settings, app settings and support block
 
 > in the future, the support department is planned in a separate page
  - [ /files ] **Files page** - user files which he can upload, download and share
   ### Pages that are conditionally available
 > there are links to them in the sidebar, but when we navigate we see the text: *Coming soon!*
- - [ /chat ] **Chat page**
  - [ /news] **News page**
  - [ /contacts ] **Contacts page**
  
